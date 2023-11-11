@@ -11,10 +11,33 @@
       <div class="topnav">
         <a class="active" href="/">Home</a>
         <a href="/create">Create user</a>
-        <a href="/contact">Contact</a>
-        <a href="/about">About</a>
+        <a href="/upload">Upload File</a>
       </div>
       <!-- <img class="flexbox" src="/images/css-flexbox.png" alt="" /> -->
+      <p>List User</p>
+      <table>
+        <tr>
+          <th>id</th>
+          <th>Email</th>
+          <th>Name</th>
+          <th>City</th>
+          <th>Actions</th>
+        </tr>
+        <% listUsers.forEach(function(user, index) { %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.email %></td>
+          <td><%= user.name %></td>
+          <td><%= user.city %></td>
+          <td>
+            <button><a href="/update/<%= user.id %>">Edit</a></button>
+            <form action="delete-user/<%= user.id %>" method="POST">
+              <button>Delete</button>
+            </form>
+          </td>
+        </tr>
+        <% }) %>
+      </table>
     </div>
   </body>
 </html>

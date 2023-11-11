@@ -1,23 +1,18 @@
-const connection = require("../config/database");
+const { createUser } = require("../services/CRUDservices");
 
-const postCreateUser = (req, res) => {
-  let email = req.body.email;
-  let name = req.body.name;
-  let city = req.body.city;
+const postCreateUser = async (req, res) => {
+  let { email, name, city } = req.body;
+  email = email.trim();
+  name = name.trim();
+  city = city.trim();
 
-  connection.query(
-    `INSERT INTO 
-          Users (email, name, city)
-          VALUES (?, ?, ?)`,
-    [email, name, city],
-    function (err, results) {
-      res.send("Create user success");
-    }
-  );
+  await createUser(email, name, city);
+
+  res.redirect("/");
 };
 
-const getCreateUser = (req, res) => {
+const getCreatePage = (req, res) => {
   return res.render("create.ejs");
 };
 
-module.exports = { postCreateUser, getCreateUser };
+module.exports = { postCreateUser, getCreatePage };

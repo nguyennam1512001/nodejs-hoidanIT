@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>delete</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="modal">
+      <form class="modal-content" action="/delete-user" method="POST">
+        <div class="container">
+          <h1>Delete Account</h1>
+          <p>Are you sure you want to delete your account?</p>
+          <div class="input-group" style="display: none">
+            <input type="text" name="userId" value="<%= results.id %>" />
+          </div>
+          <div class="clearfix">
+            <button type="button" class="cancelbtn">
+              <a href="/">Cancel</a>
+            </button>
+            <button type="submit" class="deletebtn">Delete</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

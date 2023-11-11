@@ -1,0 +1,38 @@
+<fieldset>
+  <legend>Update a user</legend>
+  <form class="form-add" action="/update-user" method="POST">
+    <div class="input-group" style="display: none">
+      <label for="email">id: </label>
+      <input type="text" name="userId" value="<%= results.id %>" />
+    </div>
+    <div class="input-group">
+      <label for="email">Email: </label>
+      <input
+        type="text"
+        name="email"
+        placeholder="Email..."
+        required
+        value="<%= results.email %>"
+      />
+    </div>
+    <div class="input-group">
+      <label for="name">Name: </label>
+      <input
+        type="text"
+        name="name"
+        placeholder="Name..."
+        value="<%= results.name %>"
+      />
+    </div>
+    <div class="input-group">
+      <label for="city">City: </label>
+      <input
+        type="text"
+        name="city"
+        placeholder="City..."
+        value="<%= results.city%>"
+      />
+    </div>
+    <button class="form-btn" type="submit">Save</button>
+  </form>
+</fieldset>
